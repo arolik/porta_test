@@ -16,11 +16,12 @@ h1, h2, h3, h4, h5 {
 
     .app__wrapper {
         width: 400px;
-        height: 500px;
+        height: auto;
         margin: 0 auto;
         padding: 10px;
         background-color: #fff;
         box-shadow: 0px 0px 4px -1px rgba(46,134,193,1);
+        box-sizing: border-box;
 
         .app__inner {
             .app__inputField {
@@ -30,6 +31,10 @@ h1, h2, h3, h4, h5 {
                 box-sizing: border-box;
                 resize: none;
                 margin-bottom: 2rem;
+            }
+
+            .app_text {
+                word-wrap: break-word;
             }
 
             .app__buttons {

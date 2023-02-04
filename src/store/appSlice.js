@@ -13,9 +13,9 @@ const appSlice = createSlice({
             state.currentText = action.payload;
         },
         findFirstSymbols(state) {
-            const text = state.currentText;
+            const text = state.currentText;  
             const words = text.split(' ');
-
+            
             function findUniqSymbol (word) {
                 let arraySymbols = word.split('');
                 let isUniqSymbol = arraySymbols[0];
@@ -33,12 +33,32 @@ const appSlice = createSlice({
                     findUniqSymbol(w)
                 )
             })
+            state.firstSymbols = state.firstSymbols.toString();
         },
         findFirstUniqSymbol(state){
-            state.firstUniqSymbol = state.firstSymbols[0]
+            const symbols = state.firstSymbols;
+
+            function findUniqSymbol (word) {
+                let arraySymbols = word.split('');
+                let isUniqSymbol = arraySymbols[0];
+                let lastWord = arraySymbols.slice(1);
+                
+                if(lastWord.find((s) => s === isUniqSymbol )){
+                    let otherSymbols = arraySymbols.filter((r) => r !== isUniqSymbol);
+                    return findUniqSymbol(otherSymbols.join(''));
+                } else {
+                    return isUniqSymbol;
+                }
+            }
+            state.firstUniqSymbol = findUniqSymbol(symbols);
+        },
+        deleteData(state){
+            state.currentText = '';
+            state.firstSymbols = '';
+            state.firstUniqSymbol = '';
         }
     }
 })
 
-export const { createText, findFirstSymbols, findFirstUniqSymbol } = appSlice.actions;
+export const { createText, findFirstSymbols, findFirstUniqSymbol, deleteData } = appSlice.actions;
 export default appSlice.reducer;
