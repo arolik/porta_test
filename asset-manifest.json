@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/porta_test/static/css/main.2be61e2b.css",
+    "main.js": "/porta_test/static/js/main.155f1871.js",
+    "index.html": "/porta_test/index.html",
+    "main.2be61e2b.css.map": "/porta_test/static/css/main.2be61e2b.css.map",
+    "main.155f1871.js.map": "/porta_test/static/js/main.155f1871.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2be61e2b.css",
+    "static/js/main.155f1871.js"
+  ]
+}
